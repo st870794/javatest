@@ -1,5 +1,5 @@
 /**
- *guess number
+ *guessnumber
  */
 import java.util.Scanner;
 public class Test03 {

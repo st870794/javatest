@@ -1,33 +1,41 @@
-package ch03;
-
+/**
+ *guess number
+ */
 import java.util.Scanner;
-
 public class Test03 {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		float number = (float)Math.random();
-		number *= 1000.0f;
-		
-		int num = (int)number;
-		
-		Scanner scanner = new Scanner(System.in);
-
-		while(true)
-			{			
-			int guess = scanner.nextInt();
-	
-			if(guess > num){
-				System.out.println("too large!");
-			}
-			else if(guess < num){
-				System.out.println("too small!");
-			}
-			else{
-				System.out.print("correct!");
-				break;
-			}
-		}		
-	}
-
+    public static void main(String[] args){
+        float number =(float)Math.random();
+        number *= 100.0f;
+        int num = (int)number;
+        
+        // boolean flag =true;
+        Scanner scanner = new Scanner(System.in);
+        int count = 5;
+        while(count > 0){
+            
+            int guess = scanner.nextInt();
+            if(guess == num){
+                    System.out.println("Correct!");
+                    //flag = !flag; //switch from true to false
+                    break;
+                }
+            else{
+                if(guess < num){
+                    System.out.println("Too small!");
+                    count--;
+                    System.out.println("remaining: " + count + " times");
+                }
+                else{
+                    System.out.println("Too large!");
+                    count--;
+                    System.out.println("remaining: " + count + " times");
+                }
+            }
+        }
+        while(count == 0){
+            System.out.println("Game Over!!");
+            break;
+        }
+    }
+    
 }

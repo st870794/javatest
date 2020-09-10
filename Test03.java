@@ -1,5 +1,5 @@
 /**
- *guessnumber
+ *guess number
  */
 import java.util.Scanner;
 public class Test03 {
@@ -10,32 +10,31 @@ public class Test03 {
         
         // boolean flag =true;
         Scanner scanner = new Scanner(System.in);
-        int count = 5;
-        while(count > 0){
+        int count = 0;
+        boolean flag = true;
+        while(flag){
             
             int guess = scanner.nextInt();
             if(guess == num){
                     System.out.println("Correct!");
-                    //flag = !flag; //switch from true to false
-                    break;
+                    flag = !flag; //switch from true to false
                 }
             else{
                 if(guess < num){
                     System.out.println("Too small!");
-                    count--;
-                    System.out.println("remaining: " + count + " times");
                 }
                 else{
                     System.out.println("Too large!");
-                    count--;
-                    System.out.println("remaining: " + count + " times");
                 }
+                count++;
+                System.out.println("already guess: " + count + " times");
             }
-        }
-        while(count == 0){
+        if(count == 10){
             System.out.println("Game Over!!");
-            break;
+            flag = !flag;
         }
+        }
+
     }
     
 }
